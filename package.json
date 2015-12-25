@@ -1,0 +1,35 @@
+{
+  "name": "putiosdk",
+  "version": "0.0.1",
+  "description": "NodeJs SDK for put.io API",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/_mocha --check-leaks ./test/*.test.js"
+  },
+  "engines": {
+    "node" : ">=4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrusavin/nodejs-putiosdk.git"
+  },
+  "keywords": [
+    "putio"
+  ],
+  "author": "Alexandru Savin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexandrusavin/nodejs-putiosdk/issues"
+  },
+  "homepage": "https://github.com/alexandrusavin/nodejs-putiosdk#readme",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "named-routes": "^2.0.2",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "nock": "^3.6.0"
+  }
+}

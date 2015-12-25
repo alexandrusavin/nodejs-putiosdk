@@ -1,0 +1,11 @@
+{
+  "node": true,
+  "esnext": true,
+  "browser": false,
+  "mocha": true,
+  "maxparams": 5,
+  "maxdepth": 5,
+  "maxcomplexity": 5,
+  "maxlen": 120,
+  "varstmt": true
+}
