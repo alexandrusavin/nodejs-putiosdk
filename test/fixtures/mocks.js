@@ -24,13 +24,15 @@ const mock = {
 
 mock.file = {};
 _.map(routes, (route) => {
-    mock.file[route.name] = (statusCode, body) => {
+    mock.file[route.name] = (statusCode, body, params) => {
         router.add(route.method.toLowerCase(), route.route, _.noop, {name: route.name});
-        const apiPath = router.build(route.name, arguments[2]);
+        const apiPath = router.build(route.name, params);
 
         putioApi[route.method.toLowerCase()](apiPath)
             .query(true)
             .reply(statusCode, body);
+
+
     };
 });
 
