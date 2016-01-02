@@ -1,4 +1,5 @@
 # Node.js SDK for put.io API
+[![Build Status](https://travis-ci.org/alexandrusavin/nodejs-putiosdk.svg?branch=master)](https://travis-ci.org/alexandrusavin/nodejs-putiosdk)
 
 ## Rationale
 
