@@ -7,7 +7,7 @@ const Router = require('named-routes');
 const router = new Router();
 const BASE_URL = 'https://api.put.io/v2/';
 const putioApi = nock(BASE_URL);
-const routes = require('../../util/routes');
+const routes = require('../../../util/routes');
 
 const mock = {
     getDummy: (statusCode, body) => {

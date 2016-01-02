@@ -30,6 +30,11 @@ function asyncRequest(generatorFunc) {
                     if(result.value.passThrough === true) {
                         return iter(result.value);
                     }
+
+                    result.value.on('error', (err) => {
+                        generator.throw(err);
+                    });
+
                     result.value.on('response', function(incomingMessage) {
                         let data = _.pick(incomingMessage,
                             ['statusCode', 'statusMessage']);

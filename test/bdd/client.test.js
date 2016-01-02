@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 const mockRequest = require('./fixtures/mocks').mock;
 
-const Client = require('../index');
+const Client = require('../../index');
 
 describe('Client', () => {
 
