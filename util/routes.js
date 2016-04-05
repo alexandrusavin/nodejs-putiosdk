@@ -1,11 +1,11 @@
 module.exports = [
-/**
- * @name File#list
- * @function
- * @param {Object} params
- * @param {Number} params.parent_id
- * @param {Function} cb
- */
+    /**
+     * @name File#list
+     * @function
+     * @param {Object} params
+     * @param {Number} params.parent_id
+     * @param {Function} cb
+     */
     {
         name: 'list',
         route: '/files/list/:parent_id',
@@ -13,12 +13,12 @@ module.exports = [
         returns: ['files', 'parent']
     },
 
-/**
- * @name File#search
- * @function
- * @param {Object} params
- * @param {Function} cb
- */
+    /**
+     * @name File#search
+     * @function
+     * @param {Object} params
+     * @param {Function} cb
+     */
     {
         name: 'search',
         route: '/files/search/:query/page(/:page_no)',
@@ -26,12 +26,12 @@ module.exports = [
         returns: ['files', 'next']
     },
 
-/**
- * @name File#get
- * @function
- * @param {Object} params
- * @param {Function} cb
- */
+    /**
+     * @name File#get
+     * @function
+     * @param {Object} params
+     * @param {Function} cb
+     */
     {
         name: 'get',
         route: '/files/:file_id',
@@ -39,12 +39,12 @@ module.exports = [
         returns: ['file']
     },
 
-/**
- * @name File#delete
- * @function
- * @param {Object} params
- * @param {Function} cb
- */
+    /**
+     * @name File#delete
+     * @function
+     * @param {Object} params
+     * @param {Function} cb
+     */
     {
         name: 'delete',
         route: '/files/delete',
@@ -52,12 +52,12 @@ module.exports = [
         params: ['file_ids']
     },
 
-/**
- * @name File#upload
- * @function
- * @param {Object} params
- * @param {Function} cb
- */
+    /**
+     * @name File#upload
+     * @function
+     * @param {Object} params
+     * @param {Function} cb
+     */
     {
         name: 'upload',
         route: '/files/upload',
@@ -73,14 +73,14 @@ module.exports = [
         ]
     },
 
-/**
- * @name File#createFolder
- * @function
- * @param {Object} params
- * @param {String} params.name
- * @param {Number} params.parent_id
- * @param {Function} cb
- */
+    /**
+     * @name File#createFolder
+     * @function
+     * @param {Object} params
+     * @param {String} params.name
+     * @param {Number} params.parent_id
+     * @param {Function} cb
+     */
     {
         name: 'createFolder',
         route: '/files/create-folder',
@@ -91,14 +91,14 @@ module.exports = [
         ]
     },
 
-/**
- * @name File#rename
- * @function
- * @param {Object} params
- * @param {Number} params.file_id
- * @param {String} params.name
- * @param {Function} cb
- */
+    /**
+     * @name File#rename
+     * @function
+     * @param {Object} params
+     * @param {Number} params.file_id
+     * @param {String} params.name
+     * @param {Function} cb
+     */
     {
         name: 'rename',
         route: '/files/rename',
@@ -109,14 +109,14 @@ module.exports = [
         ]
     },
 
-/**
- * @name File#move
- * @function
- * @param {Object} params
- * @param {Number} parent_id
- * @param {String} file_ids
- * @param {Function} cb
- */
+    /**
+     * @name File#move
+     * @function
+     * @param {Object} params
+     * @param {Number} parent_id
+     * @param {String} file_ids
+     * @param {Function} cb
+     */
     {
         name: 'move',
         route: '/files/move',
@@ -127,54 +127,54 @@ module.exports = [
         ]
     },
 
-/**
- * @name File#convertMp4
- * @function
- * @param {Object} params
- * @param {Number} params.file_id
- * @param {Function} cb
- */
+    /**
+     * @name File#convertMp4
+     * @function
+     * @param {Object} params
+     * @param {Number} params.file_id
+     * @param {Function} cb
+     */
     {
         name: 'convertMp4',
         route: '/files/:file_id/mp4',
         method: 'POST'
     },
 
-/**
- * @name File#getMp4
- * @function
- * @param {Object} params
- * @param {Number} params.file_id
- * @param {Function} cb
- */
+    /**
+     * @name File#getMp4
+     * @function
+     * @param {Object} params
+     * @param {Number} params.file_id
+     * @param {Function} cb
+     */
     {
         name: 'getMp4',
         route: '/files/:file_id/mp4',
         method: 'GET',
-        returns:[
+        returns: [
             'mp4'
         ]
     },
-/**
- * @name File#download
- * @function
- * @param {Object} params
- * @param {Number} params.file_id
- * @returns {Request}
- */
+    /**
+     * @name File#download
+     * @function
+     * @param {Object} params
+     * @param {Number} params.file_id
+     * @returns {Request}
+     */
     {
         name: 'download',
         route: '/files/:file_id/download',
         method: 'GET',
         returns: []
     },
-/**
- * @name File#zipDownload
- * @function
- * @param {Object} params
- * @param {String} params.file_ids
- * @param {Function} cb
- */
+    /**
+     * @name File#zipDownload
+     * @function
+     * @param {Object} params
+     * @param {String} params.file_ids
+     * @param {Function} cb
+     */
     {
         name: 'zipDownload',
         route: '/files/zip/:file_ids',
@@ -183,14 +183,14 @@ module.exports = [
             'zip_id'
         ]
     },
-/**
- * @name File#share
- * @function
- * @param {Object} params
- * @param {String} params.file_ids
- * @param {String} params.friends
- * @param {Function} cb
- */
+    /**
+     * @name File#share
+     * @function
+     * @param {Object} params
+     * @param {String} params.file_ids
+     * @param {String} params.friends
+     * @param {Function} cb
+     */
     {
         name: 'share',
         route: '/files/share',
@@ -200,12 +200,12 @@ module.exports = [
             'friends'
         ]
     },
-/**
- * @name File#shared
- * @function
- * @param {Object} params
- * @param {Function} cb
- */
+    /**
+     * @name File#shared
+     * @function
+     * @param {Object} params
+     * @param {Function} cb
+     */
     {
         name: 'shared',
         route: '/files/shared',
@@ -214,13 +214,13 @@ module.exports = [
             'shared'
         ]
     },
-/**
- * @name File#sharedWith
- * @function
- * @param {Object} params
- * @param {Number} params.file_id
- * @param {Function} cb
- */
+    /**
+     * @name File#sharedWith
+     * @function
+     * @param {Object} params
+     * @param {Number} params.file_id
+     * @param {Function} cb
+     */
     {
         name: 'sharedWith',
         route: '/files/:file_id/shared-with',
@@ -229,14 +229,14 @@ module.exports = [
             'shared-with'
         ]
     },
-/**
- * @name File#unshare
- * @function
- * @param {Object} params
- * @param {String} params.file_id
- * @param {String} params.shares
- * @param {Function} cb
- */
+    /**
+     * @name File#unshare
+     * @function
+     * @param {Object} params
+     * @param {String} params.file_id
+     * @param {String} params.shares
+     * @param {Function} cb
+     */
     {
         name: 'unshare',
         route: '/files/:file_id/unshare',
