@@ -244,5 +244,21 @@ module.exports = [
         params: [
             'shares'
         ]
+    },
+    /**
+     * @name File#events
+     * @function
+     * @param {Object} params
+     * @param {String} params.file_id
+     * @param {String} params.shares
+     * @param {Function} cb
+     */
+    {
+        name: 'events',
+        route: '/events/list',
+        method: 'GET',
+        returns: [
+            'events'
+        ]
     }
 ];
