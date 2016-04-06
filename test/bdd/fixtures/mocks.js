@@ -39,5 +39,6 @@ _.map(routes, (route) => {
 });
 
 module.exports = {
-    mock: mock
+    mock,
+    nock
 };
