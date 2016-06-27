@@ -10,7 +10,7 @@ module.exports = [
         name: 'list',
         route: '/files/list/',
         method: 'GET',
-        params: ['parent_id'],
+        queryString: ['parent_id'],
         returns: ['files', 'parent']
     },
 
