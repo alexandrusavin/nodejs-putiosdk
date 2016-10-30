@@ -86,4 +86,22 @@ describe('File API tests', () => {
         });
     });
 
+    context('search', function() {
+        beforeEach(function() {
+            mockRequest.file.search(200, searchResultsFixture, {
+                query: 'foobar',
+                page: 23
+            });
+
+            this.expectedSearchCallResult = searchResultsFixture;
+        });
+
+        it('should do a search request', function() {
+            const result = this.client.file.search({
+                query: 'foobar',
+                page: 23
+            });
+            return expect(result).to.eventually.deep.equal(this.expectedSearchCallResult);
+        });
+    });
 });
