@@ -6,7 +6,7 @@ const mockRequest = require('./fixtures/mocks').mock;
 
 const Client = require('../../index');
 
-describe('Client', () => {
+describe('Generic tests', () => {
 
     context('successful request', () => {
         beforeEach(() => {

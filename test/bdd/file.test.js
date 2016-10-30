@@ -13,32 +13,45 @@ const nock = require('./fixtures/mocks').nock;
 const Client = require('../../index');
 const filesListFixture = require('./fixtures/filesList.json');
 const eventsFixture = require('./fixtures/events.json');
+const searchResultsFixture = require('./fixtures/searchResponse.json');
 
-describe('File list', () => {
+describe('File API tests', () => {
 
     beforeEach(function() {
-        mockRequest.file.list(200, filesListFixture, {parent_id: 123456});
-        mockRequest.getDummy(200, {});
-        
-        mockRequest.file.events(200, eventsFixture);
-
         this.client = new Client('token');
-        this.expectedFileListCallResult = filesListFixture;
-        this.expectedEventsCallResult = eventsFixture;
     });
 
-    it('should load file list', function() {
-        const result = this.client.file.list({parent_id: 123456});
-        return expect(result).to.eventually.deep.equal(this.expectedFileListCallResult);
+    context('list', function() {
+        beforeEach(function() {
+            mockRequest.file.list(200, filesListFixture, {parent_id: 123456});
+            mockRequest.getDummy(200, {});
+
+            mockRequest.file.events(200, eventsFixture);
+
+            this.expectedFileListCallResult = filesListFixture;
+            this.expectedEventsCallResult = eventsFixture;
+        });
+
+        it('should load file list', function() {
+            const result = this.client.file.list({parent_id: 123456});
+            return expect(result).to.eventually.deep.equal(this.expectedFileListCallResult);
+        });
     });
-    
-    it('should return a promise if no callback passed', function() {
-        const result = this.client.file.events();
-        return expect(result).to.eventually.deep.equal(this.expectedEventsCallResult);
+
+    context('events', function() {
+        beforeEach(function() {
+            mockRequest.file.events(200, eventsFixture);
+
+            this.expectedEventsCallResult = eventsFixture;
+        });
+
+        it('should do an events request', function() {
+            const result = this.client.file.events();
+            return expect(result).to.eventually.deep.equal(this.expectedEventsCallResult);
+        });
     });
 
     context('download', () => {
-
         beforeEach(function() {
             mockRequest.file.download(302, '', {file_id: 54321}, {
                 Location: 'http://example.com/download'
