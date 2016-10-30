@@ -261,5 +261,20 @@ module.exports = [
         returns: [
             'events'
         ]
+    },
+    /**
+     * @name File#subtitles
+     * @function
+     * @param {Object} params
+     * @param {Number} params.file_id
+     * @param {Function} cb
+     */
+    {
+        name: 'subtitles',
+        route: '/files/:file_id/subtitles',
+        method: 'GET',
+        returns: [
+            'subtitles'
+        ]
     }
 ];

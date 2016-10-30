@@ -11,9 +11,6 @@ const mockRequest = require('./fixtures/mocks').mock;
 const nock = require('./fixtures/mocks').nock;
 
 const Client = require('../../index');
-const filesListFixture = require('./fixtures/filesList.json');
-const eventsFixture = require('./fixtures/events.json');
-const searchResultsFixture = require('./fixtures/searchResponse.json');
 
 describe('File API tests', () => {
 
@@ -21,39 +18,9 @@ describe('File API tests', () => {
         this.client = new Client('token');
     });
 
-    context('list', function() {
-        beforeEach(function() {
-            mockRequest.file.list(200, filesListFixture, {parent_id: 123456});
-            mockRequest.getDummy(200, {});
-
-            mockRequest.file.events(200, eventsFixture);
-
-            this.expectedFileListCallResult = filesListFixture;
-            this.expectedEventsCallResult = eventsFixture;
-        });
-
-        it('should load file list', function() {
-            const result = this.client.file.list({parent_id: 123456});
-            return expect(result).to.eventually.deep.equal(this.expectedFileListCallResult);
-        });
-    });
-
-    context('events', function() {
-        beforeEach(function() {
-            mockRequest.file.events(200, eventsFixture);
-
-            this.expectedEventsCallResult = eventsFixture;
-        });
-
-        it('should do an events request', function() {
-            const result = this.client.file.events();
-            return expect(result).to.eventually.deep.equal(this.expectedEventsCallResult);
-        });
-    });
-
     context('download', () => {
         beforeEach(function() {
-            mockRequest.file.download(302, '', {file_id: 54321}, {
+            mockRequest.file.download(302, '', '/files/54321/download', {
                 Location: 'http://example.com/download'
             });
 
@@ -86,22 +53,68 @@ describe('File API tests', () => {
         });
     });
 
-    context('search', function() {
-        beforeEach(function() {
-            mockRequest.file.search(200, searchResultsFixture, {
+    [
+        {
+            apiCall: 'search',
+            apiPath: '/files/search/foobar/page/23',
+            params: {
                 query: 'foobar',
-                page: 23
+                page_no: 23
+            },
+            expectedCallResult: require('./fixtures/searchResponse.json')
+        },
+        {
+            apiCall: 'list',
+            apiPath: '/files/list',
+            params: {
+                parent_id: 123456
+            },
+            expectedCallResult: require('./fixtures/filesList.json')
+        },
+        {
+            apiCall: 'sharedWith',
+            apiPath: '/files/123456/shared-with',
+            params: {
+                file_id: 123456
+            },
+            expectedCallResult: require('./fixtures/searedWithResponse.json')
+        },
+        {
+            apiCall: 'subtitles',
+            apiPath: '/files/123456/subtitles',
+            params: {
+                file_id: 123456
+            },
+            expectedCallResult: require('./fixtures/subtitlesResponse.json')
+        },
+        {
+            apiCall: 'shared',
+            apiPath: '/files/shared',
+            expectedCallResult: require('./fixtures/searedResponse.json')
+        },
+        {
+            apiCall: 'events',
+            apiPath: '/events/list',
+            expectedCallResult: require('./fixtures/events.json')
+        },
+        {
+            apiCall: 'get',
+            apiPath: '/files/123456',
+            params: {
+                file_id: 123456
+            },
+            expectedCallResult: require('./fixtures/getFilePropertiesResponse.json')
+        }
+    ].forEach((testCase) => {
+        context(testCase.apiCall, function() {
+            beforeEach(function() {
+                mockRequest.file[testCase.apiCall](200, testCase.expectedCallResult, testCase.apiPath);
             });
 
-            this.expectedSearchCallResult = searchResultsFixture;
-        });
-
-        it('should do a search request', function() {
-            const result = this.client.file.search({
-                query: 'foobar',
-                page: 23
+            it('should do a search request', function() {
+                const promise = this.client.file[testCase.apiCall](testCase.params);
+                return expect(promise).to.eventually.deep.equal(testCase.expectedCallResult);
             });
-            return expect(result).to.eventually.deep.equal(this.expectedSearchCallResult);
         });
     });
 });
