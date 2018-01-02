@@ -1,4 +1,6 @@
 # Node.js SDK for put.io API
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/alexandrusavin/nodejs-putiosdk.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/alexandrusavin/nodejs-putiosdk.svg?branch=master)](https://travis-ci.org/alexandrusavin/nodejs-putiosdk)
 
 ## Rationale
