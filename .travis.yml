@@ -9,6 +9,6 @@ deploy:
     secure: L1ngJEuIIq4hQ64S1myqAKtPmZmskmKuFN2f2BTUqUM9P32GdOAoa3oOU/Bdftjb8OrsUsBxCeFgle9DzE4JDLA1UvzYOKMMq+HKeHDurYX9Xpj7Zbayo8cONts+Y4+L2fwk1H85j+Hz6xrnZ0kLGZVJ0OnolmdWTyyGATzpk2E=
   email: alexandrusavin@gmail.com
   provider: npm
-before_install: yarn global add greenkeeper-lockfile@1
+before_install: npm i -g npm greenkeeper-lockfile@1
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
