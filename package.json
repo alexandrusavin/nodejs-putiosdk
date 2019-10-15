@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/alexandrusavin/nodejs-putiosdk#readme",
   "dependencies": {
-    "bluebird": "^3.3.4",
+    "bluebird": "^3.7.1",
     "get-stream": "^3.0.0",
     "lodash": "^4.17.11",
     "named-routes": "^2.0.2",
