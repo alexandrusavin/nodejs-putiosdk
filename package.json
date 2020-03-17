@@ -24,7 +24,7 @@
   "homepage": "https://github.com/alexandrusavin/nodejs-putiosdk#readme",
   "dependencies": {
     "bluebird": "^3.3.4",
-    "get-stream": "^3.0.0",
+    "get-stream": "^5.1.0",
     "lodash": "^4.17.15",
     "minimist": "^1.2.5",
     "named-routes": "^2.0.2",
@@ -34,7 +34,7 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "mocha": "^7.1.0",
-    "nock": "^9.1.5",
-    "tmp": "0.0.33"
+    "nock": "^12.0.3",
+    "tmp": "^0.1.0"
   }
 }
