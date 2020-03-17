@@ -25,7 +25,7 @@
   "dependencies": {
     "bluebird": "^3.3.4",
     "get-stream": "^3.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "named-routes": "^2.0.2",
     "request": "^2.88.0"
   },
